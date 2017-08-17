@@ -17,6 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProvideController {
     private final Logger logger = Logger.getLogger(ProvideController.class);
 
+    /**
+     * 客户端
+     */
     @Autowired
     private DiscoveryClient discoveryClient;
 
