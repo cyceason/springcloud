@@ -3,8 +3,10 @@ server:
 eureka:
   instance:
     hostname: localhost
+  # 默认情况下，服务注册中心也会将自己作为客户端来尝试注册自己，因此需要禁止该行为
+  # 如果是部署集群，则不需要禁止
   client:
-    register-with-eureka: false
-    fetch-registry: false
+    register-with-eureka: false # 不向注册中心注册自己
+    fetch-registry: false # 不去检索服务
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
