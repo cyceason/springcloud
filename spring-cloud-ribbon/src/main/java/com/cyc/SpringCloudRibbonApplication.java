@@ -11,8 +11,12 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 public class SpringCloudRibbonApplication {
 
-    @Bean
+    /**
+     * @LoadBalanced ： 开启客户端负载均衡
+     * @return
+     */
     @LoadBalanced
+    @Bean
     RestTemplate restTemplate() {
         return new RestTemplate();
     }

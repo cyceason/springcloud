@@ -7,3 +7,5 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8000/eureka/
+    # fetch-registry: true # 是否更新清单
+    # registry-fetch-interval-seconds: 30 # 清单每隔30秒更新一次

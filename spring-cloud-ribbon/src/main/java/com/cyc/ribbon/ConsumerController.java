@@ -17,6 +17,7 @@ public class ConsumerController {
 
     @RequestMapping(value = "/ribbon-consumer", method = RequestMethod.GET)
     public String consumer() {
+        // 地址为服务名称，不是ip地址或域名
         return restTemplate.getForEntity("http://SPRING-CLOUD-PROVIDER/provideHello", String.class).getBody();
     }
 }
