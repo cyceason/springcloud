@@ -30,4 +30,8 @@ public class ProvideController {
         return "hello, provide";
     }
 
+    @RequestMapping(value = "/provideUser")
+    public User provideUser() {
+        return new User();
+    }
 }
