@@ -15,6 +15,10 @@ public class HystrixService {
     @Autowired
     private RestTemplate restTemplate;
 
+    /**
+     * @HystrixCommand ： 断路时访问的方法
+     * @return
+     */
     @HystrixCommand(fallbackMethod = "errorBack")
     public String hystrixService() {
         return restTemplate.getForEntity("http://SPRING-CLOUD-PROVIDER/provideHello", String.class).getBody();

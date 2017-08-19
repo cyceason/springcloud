@@ -8,6 +8,9 @@ import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
+/**
+ * @EnableCircuitBreaker : 开启断路功能
+ */
 @EnableCircuitBreaker
 @EnableDiscoveryClient
 @SpringBootApplication
