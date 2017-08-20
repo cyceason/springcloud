@@ -44,8 +44,8 @@ public class ProvideController {
         return new User();
     }
 
-    @RequestMapping(value = "/provideUser/{ids}")
-    public List<User> provideUser(@PathVariable String ids) {
+    @RequestMapping(value = "/provideUsers/{ids}")
+    public List<User> provideUsers(@PathVariable String ids) {
         System.out.println("ids=" + ids);
         List<User> list = new ArrayList<>();
         list.add(new User());
