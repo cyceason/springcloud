@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * Created by cyc_e on 2017/8/17.
@@ -39,5 +42,15 @@ public class ProvideController {
     @RequestMapping(value = "/provideUser/{id}")
     public User provideUser(@PathVariable Long id) {
         return new User();
+    }
+
+    @RequestMapping(value = "/provideUser/{ids}")
+    public List<User> provideUser(@PathVariable String ids) {
+        System.out.println("ids=" + ids);
+        List<User> list = new ArrayList<>();
+        list.add(new User());
+        list.add(new User());
+        list.add(new User());
+        return list;
     }
 }

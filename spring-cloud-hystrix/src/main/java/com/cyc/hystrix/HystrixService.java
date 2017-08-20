@@ -23,10 +23,11 @@ public class HystrixService {
     /**
      * HystrixCommand ： 断路时访问的方法， 此为同步返回，是为调用HystrixCommand.execute()
      * fallbackMethod ： 异常访问方法， 返回类型要给hystrixService返回类型一样
+     * <p>
+     * commandKey : 命令名字
+     * groupKey ： Hystrix线程池分配依靠命令组来划分
+     * hreadPoolKey ： 在命令组基础上，更进一步细化分
      *
-     *  commandKey : 命令名字
-     *  groupKey ： Hystrix线程池分配依靠命令组来划分
-     *  hreadPoolKey ： 在命令组基础上，更进一步细化分
      * @return
      */
     @HystrixCommand(fallbackMethod = "errorBack", commandKey = "hystrixService", groupKey = "hystrixServiceGroup", threadPoolKey = "hystrixServiceThread")
