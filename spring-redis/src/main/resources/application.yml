@@ -1,0 +1,15 @@
+spring:
+  redis:
+    database: 0 #\u6570\u636E\u5E93\u540D\u5B57\uFF0C\u9ED8\u8BA4\u4E3A0
+#    host:
+#    password:
+#    port:
+#    pool:
+#      max-idle:
+#      min-idle:
+#      max-active:
+#      max-wait:
+#    sentinel:
+#      master:
+#      nodes:
+#    timeout:
