@@ -1,0 +1,3 @@
+springboot核心，通过某个条件注入某类
+1. @Conditional ： 根据满足某一特定条件创建一个特定的Bean
+2. Condition ： 通过实现Condition接口，构造条件
