@@ -7,3 +7,17 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8000/eureka/
+SPRING-CLOUD-PROVIDER:
+  ribbon:
+    ConnectTimeout: 500
+    ReadTimeout: 2000
+    OkToRetryOnAllOperations: true
+    MaxAutoRetriesNextServer: 2 # 尝试更换两次实例进行重试
+    MaxAutoRetries: 1 # 重试策略先尝试访问首选实例一次，失败后才更换实例访问
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 5000 # hystrix时间配置必须大于ribbon超时时间，否则重试机制没有意思
