@@ -21,3 +21,12 @@ hystrix:
         isolation:
           thread:
             timeoutInMilliseconds: 5000 # hystrix时间配置必须大于ribbon超时时间，否则重试机制没有意思
+# feign其他配置，例如压缩配置
+feign:
+  compression:
+    request:
+      enabled: true
+      min-request-size: 2048 #压缩大小下限
+      mime-types: text/xml,application/xml,application/json # 压缩类型
+    response:
+      enabled: true
