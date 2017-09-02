@@ -1,0 +1,9 @@
+spring-boot-自动注入开发核心步骤
+
+1. HelloService ： 属性配置描述
+
+2. HelloServiceProperties ： 配置描述
+
+3. HelloServiceAutoConfiguration ： 条件描述
+
+4. spring.factoris
