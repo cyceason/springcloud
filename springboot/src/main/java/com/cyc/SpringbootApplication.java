@@ -14,9 +14,17 @@ public class SpringbootApplication {
     @Autowired
     ListServer listServer;
 
+    @Autowired
+    HelloService helloService;
+
     @RequestMapping("/")
     public String home() {
         return listServer.showListCmd();
+    }
+
+    @RequestMapping("/hello")
+    public String hello() {
+        return helloService.getMsg();
     }
 
     public static void main(String[] args) {

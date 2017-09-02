@@ -1,0 +1,3 @@
+hello:
+  msg: 我的自动注入
+debug: true
