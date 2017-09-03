@@ -8,7 +8,9 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8000/eureka/
 zuul:
+  ignored-services: spring-cloud-provider # 忽略掉某个服务配置，如果该服务需要对外访问，则必须配置 routes
   routes:
     provide:
-      path: /provide/** # \u6240\u6709http://localhost:8005/provide/**\u8BF7\u6C42\uFF0C\u90FD\u4F1A\u8F6C\u53D1\u5230SPRING-CLOUD-PROVIDER\u670D\u52A1
-      serviceId: SPRING-CLOUD-PROVIDER
+      path: /spring-cloud-provider/** # 所有http://localhost:8005/provide/**#请求，都会转发到SPRING-CLOUD-PROVIDER服务
+      serviceId: spring-cloud-provider # spring cloud server注册的服务
+#    spring-cloud-provider: /provide/** # 配置方式二
