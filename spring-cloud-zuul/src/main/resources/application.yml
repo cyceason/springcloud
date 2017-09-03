@@ -9,8 +9,11 @@ eureka:
       defaultZone: http://localhost:8000/eureka/
 zuul:
   ignored-services: spring-cloud-provider # 忽略掉某个服务配置，如果该服务需要对外访问，则必须配置 routes
+#  ignored-patterns: /**/provideHello # 忽略表达式
   routes:
     provide:
       path: /spring-cloud-provider/** # 所有http://localhost:8005/provide/**#请求，都会转发到SPRING-CLOUD-PROVIDER服务
       serviceId: spring-cloud-provider # spring cloud server注册的服务
-#    spring-cloud-provider: /provide/** # 配置方式二
+      customSensitiveHeaders: true # zuul为了安全，不会传递cookie，set-cookie，authorization等等属性信息， 此为开启自定义敏感头
+#     spring-cloud-provider: /provide/** # 配置方式二
+
