@@ -1,7 +1,11 @@
 package com.cyc.zuul;
 
 import com.netflix.zuul.ZuulFilter;
+import com.netflix.zuul.context.RequestContext;
 import org.springframework.stereotype.Component;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * zuul的核心，过滤器
@@ -46,8 +50,15 @@ public class AccessFilter extends ZuulFilter {
      */
     @Override
     public Object run() {
-//        RequestContext ctx = RequestContext.getCurrentContext();
-//        HttpServletRequest request = ctx.getRequest();
+        RequestContext ctx = RequestContext.getCurrentContext();
+        HttpServletRequest request = ctx.getRequest();
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                System.out.println("cookie name : " + cookie.getName() + "cookie value : " + cookie.getValue());
+            }
+        }
+        RequestContext.getCurrentContext().addZuulRequestHeader("cychead", "cycheadvalue");
 //        System.out.println("url : " + request.getRequestURL().toString());
 //        String accessToken = request.getParameter("accessToken");
 //        if (accessToken == null) {
