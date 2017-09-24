@@ -1,6 +1,8 @@
 server:
   port: 8000
 eureka:
+  server:
+    enable-self-preservation: false # 关闭保护机制，当心跳失败比率在15分钟以内低于85%。注册中心会将当前的实例信息保存起来。让实例不会过期
   instance:
     hostname: localhost
     # prefer-ip-address: true # 是否允许通过ip进行访问
