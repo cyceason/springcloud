@@ -17,4 +17,10 @@ public class FeignController {
     public String feignConsumer() {
         return feignService.provideHello(1L);
     }
+
+    @RequestMapping(value = "/provideHello")
+    public String provideHello() {
+        return feignService.provideHello();
+    }
+
 }

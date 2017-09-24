@@ -20,4 +20,9 @@ public class FallBack implements FeignService {
     public String provideHello(Long id) {
         return "降级服务返回";
     }
+
+    @Override
+    public String provideHello() {
+        return "降级服务返回";
+    }
 }

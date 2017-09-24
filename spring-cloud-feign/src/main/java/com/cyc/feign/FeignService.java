@@ -18,4 +18,7 @@ public interface FeignService {
      */
     @RequestMapping(value = "/provideUser/{id}")
     String provideHello(@PathVariable(value = "id") Long id);
+
+    @RequestMapping(value = "/provideHello")
+    String provideHello();
 }

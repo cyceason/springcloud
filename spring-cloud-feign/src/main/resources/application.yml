@@ -11,9 +11,9 @@ SPRING-CLOUD-PROVIDER:
   ribbon:
     ConnectTimeout: 500
     ReadTimeout: 2000
-    OkToRetryOnAllOperations: true
-    MaxAutoRetriesNextServer: 2 # 尝试更换两次实例进行重试
-    MaxAutoRetries: 1 # 重试策略先尝试访问首选实例一次，失败后才更换实例访问
+    OkToRetryOnAllOperations: true # 对所有操作请求都进行重试
+    MaxAutoRetriesNextServer: 2 # 切换实例的重试次数
+    MaxAutoRetries: 1 # 对当前实例的重试次数
 hystrix:
   command:
     default:
