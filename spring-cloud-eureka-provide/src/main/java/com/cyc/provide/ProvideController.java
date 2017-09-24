@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +31,14 @@ public class ProvideController {
     private DiscoveryClient discoveryClient;
 
     @RequestMapping(value = "/provideHello")
-    public String provideHello() {
+    public String provideHello(HttpServletResponse response, HttpServletRequest request) {
+        // 用于校验能否拿到zuul的RequestContext.getCurrentContext().addZuulRequestHeader的值
+        String xxxRequestHead = request.getHeader("xxxRequestHead");
+        System.out.println(xxxRequestHead);
+        // 用于校验能否传递给zuul的RequestContext.getCurrentContext().getZuulResponseHeaders()
+        response.setHeader("xxxResponseHead", "xxxResponseHead");
+        // 用于校验zuul是否能获取到对应的cookie
+        response.addCookie(new Cookie("name", "cyc"));
         ServiceInstance localServiceInstance = discoveryClient.getLocalServiceInstance();
         logger.info("host: " + localServiceInstance.getHost() + ", service_id : " + localServiceInstance.getServiceId());
         return "hello, provide";
