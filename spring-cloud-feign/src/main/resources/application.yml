@@ -30,3 +30,5 @@ feign:
       mime-types: text/xml,application/xml,application/json # 压缩类型
     response:
       enabled: true
+  hystrix:
+    enabled: true
