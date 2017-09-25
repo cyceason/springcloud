@@ -2,6 +2,7 @@ package com.cyc;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -15,5 +16,19 @@ public class ThymeleafHelloWd {
     public String helloWd(Model model) {
         model.addAttribute("name", "cyc_eason");
         return "thymeleaf";
+    }
+
+    /**
+     * 自定义异常页面
+     *
+     * @param e
+     * @param model
+     * @return
+     */
+    @RequestMapping("/500")
+    @ExceptionHandler
+    public String internalServerError(Throwable e, Model model) {
+        model.addAttribute("errorMsg", e.getMessage());
+        return "500";
     }
 }
