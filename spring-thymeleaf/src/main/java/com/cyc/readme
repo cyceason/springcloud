@@ -1,0 +1,24 @@
+spring boot 集成Thymeleaf
+1. 引入
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-thymeleaf</artifactId>
+</dependency>
+
+2. 自动注解类 ： ThymeleafAutoConfiguration
+
+3. 页面静态文件放在 src/main/resources/static下
+
+4. Thymeleaf页面放在 src/main/resources/tempates 下
+
+5. 页面例子
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>hello</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+    <span th:text="'Hello！, ' + ${name} + '!'"/>
+</body>
+</html>
