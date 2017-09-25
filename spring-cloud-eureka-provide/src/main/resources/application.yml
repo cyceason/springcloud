@@ -14,3 +14,8 @@ eureka:
     # lease-renewal-interval-in-seconds: 90 # 定义服务失效时间， 默认90秒
     healthcheck:
       enabled: true #引入页面健康状态查看 ，/info ; /health
+# spring boot正确关闭
+endpoints:
+  shutdown:
+    enabled: true
+    sensitive: false
